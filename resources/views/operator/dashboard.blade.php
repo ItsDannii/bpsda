@@ -25,7 +25,7 @@
             <div class="card-body">
                 <div class="flex items-center justify-between gap-2">
                     <h2 class="card-title text-base">Jadwal Tugas Hari Ini</h2>
-                    <a href="{{ route('operator.monitoring') }}" class="btn btn-ghost btn-sm">Monitoring →</a>
+                    <a href="{{ route('operator.monitoring') }}" class="btn btn-ghost btn-sm gap-1">Monitoring <x-lucide-arrow-right class="size-4" /></a>
                 </div>
                 <ul class="mt-2 flex flex-col gap-2">
                     @foreach ([['Pencatatan TMA Pos A — 07.00', 'Selesai', 'badge-success'], ['Pencatatan curah hujan Pos B — 12.00', 'Menunggu', 'badge-warning'], ['Verifikasi 6 pengaduan masuk', 'Berjalan', 'badge-info'], ['Kompilasi laporan harian — 16.00', 'Terjadwal', 'badge-ghost']] as [$task, $status, $badge])
@@ -45,7 +45,7 @@
                 <div class="mt-2 flex flex-col gap-2">
                     <a href="{{ route('operator.monitoring') }}" class="btn btn-primary btn-sm w-full">Input Data Monitoring</a>
                     <a href="{{ route('operator.reports') }}" class="btn btn-outline btn-sm w-full">Buat Laporan Harian</a>
-                    <a href="/" class="btn btn-ghost btn-sm w-full">Lihat Situs Publik</a>
+                    <a href="{{ route('home') }}" class="btn btn-ghost btn-sm w-full">Lihat Situs Publik</a>
                 </div>
             </div>
         </div>

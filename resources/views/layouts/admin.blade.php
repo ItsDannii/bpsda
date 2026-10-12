@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Dashboard') — {{ config('app.name', 'Laravel') }} Admin</title>
+    <title>@yield('title', 'Dashboard') — BPSDA Panel</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-base-200 min-h-screen font-sans text-base-content antialiased">
@@ -14,27 +14,13 @@
         {{-- Topbar --}}
         <header class="navbar bg-base-100 sticky top-0 z-30 gap-2 border-b border-base-300 px-4 lg:px-8">
             <label for="admin-drawer" class="btn btn-ghost btn-square drawer-button lg:hidden" aria-label="Buka menu">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <x-lucide-menu class="size-5" />
             </label>
 
             <div class="flex-1">
                 <h1 class="text-lg font-bold tracking-tight">@yield('header', 'Dashboard')</h1>
                 <p class="text-base-content/60 hidden text-sm sm:block">@yield('subheader', 'Selamat datang kembali, pantau aktivitas hari ini.')</p>
             </div>
-
-            <div class="hidden md:block">
-                <label class="input input-bordered input-sm flex w-64 items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 opacity-60"><circle cx="11" cy="11" r="7" /><path stroke-linecap="round" d="m20 20-3.5-3.5" /></svg>
-                    <input type="search" placeholder="Cari…" class="grow">
-                </label>
-            </div>
-
-            <button type="button" class="btn btn-ghost btn-sm btn-circle" aria-label="Notifikasi">
-                <span class="indicator">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.6V11a6 6 0 0 0-4-5.7V5a2 2 0 1 0-4 0v.3A6 6 0 0 0 6 11v3.6c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 1 1-6 0v-1m6 0H9" /></svg>
-                    <span class="badge badge-primary badge-xs indicator-item">3</span>
-                </span>
-            </button>
 
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="avatar placeholder cursor-pointer">
@@ -50,7 +36,7 @@
                     <li>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="w-full text-left">Keluar</button>
+                            <button type="submit" class="text-error w-full text-left">Keluar</button>
                         </form>
                     </li>
                 </ul>
@@ -62,8 +48,8 @@
             @yield('content')
         </main>
 
-        <footer class="text-base-content/50 px-8 pb-6 text-xs">
-            © {{ date('Y') }} {{ config('app.name', 'Laravel') }} — Panel Admin.
+        <footer class="text-base-content/50 px-4 pb-6 text-xs lg:px-8">
+            © {{ date('Y') }} BPSDA — Panel {{ auth()->user()?->hasRole('operator') ? 'Operator' : 'Admin' }}.
         </footer>
     </div>
 
@@ -72,7 +58,9 @@
         <label for="admin-drawer" aria-label="Tutup menu" class="drawer-overlay"></label>
         <aside class="bg-base-100 flex min-h-full w-72 flex-col border-r border-base-300">
             <a href="{{ auth()->user()?->hasRole('operator') ? route('operator.dashboard') : route('admin.dashboard') }}" class="flex items-center gap-3 px-6 pt-6 pb-4">
-                <span class="bg-primary text-primary-content grid size-10 place-items-center rounded-xl text-lg font-black">B</span>
+                <span class="bg-primary text-primary-content grid size-10 place-items-center rounded-xl">
+                    <x-lucide-droplets class="size-5" />
+                </span>
                 <span>
                     <span class="block text-base leading-tight font-extrabold">BPSDA {{ auth()->user()?->hasRole('operator') ? 'Operator' : 'Admin' }}</span>
                     <span class="text-base-content/60 block text-xs">Panel kontrol</span>

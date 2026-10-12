@@ -17,7 +17,7 @@
         </p>
         <div class="hidden items-center gap-4 sm:flex">
             <a href="tel:+62211234567" class="flex items-center gap-1.5 opacity-90 hover:opacity-100 hover:underline">
-                <i data-lucide="phone" class="size-3.5"></i>
+                <x-lucide-phone class="size-3.5" />
                 (021) 123-4567
             </a>
             <a href="mailto:info@example.com" class="opacity-90 hover:opacity-100 hover:underline">info@example.com</a>
@@ -34,7 +34,7 @@
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-square lg:hidden" aria-label="Buka menu navigasi">
-                    <i data-lucide="menu" class="size-5"></i>
+                    <x-lucide-menu class="size-5" />
                 </div>
                 <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-50 mt-2 w-56 gap-1 p-2 shadow">
                     <li><a href="#beranda">Beranda</a></li>
@@ -48,7 +48,7 @@
             </div>
             <a href="{{ route('home') }}" class="flex items-center gap-3">
                 <span class="grid size-11 place-items-center rounded-xl bg-blue-900 font-black text-white">
-                    <i data-lucide="droplets" class="size-6"></i>
+                    <x-lucide-droplets class="size-6" />
                 </span>
                 <span>
                     <span class="block text-lg leading-tight font-extrabold tracking-tight text-blue-950">BPSDA</span>
@@ -83,7 +83,7 @@
         <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
             <div>
                 <div class="flex items-center gap-3">
-                    <span class="grid size-10 place-items-center rounded-xl bg-white/15 text-white"><i data-lucide="droplets" class="size-5"></i></span>
+                    <span class="grid size-10 place-items-center rounded-xl bg-white/15 text-white"><x-lucide-droplets class="size-5" /></span>
                     <div>
                         <p class="font-extrabold">BPSDA</p>
                         <p class="text-xs opacity-70">Balai Pengelolaan Sumber Daya Air</p>

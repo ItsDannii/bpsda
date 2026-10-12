@@ -12,7 +12,7 @@
                     <p class="text-base-content/60 text-sm">{{ $stat['label'] }}</p>
                     <p class="text-2xl font-extrabold tracking-tight">{{ $stat['value'] }}</p>
                     <p class="text-sm">
-                        <span class="badge badge-sm {{ str_starts_with($stat['change'], '-') ? 'badge-error badge-soft' : 'badge-success badge-soft' }}">{{ $stat['change'] }}</span>
+                        <span class="badge badge-sm {{ $stat['trend'] === 'down' ? 'badge-error badge-soft' : 'badge-success badge-soft' }}">{{ $stat['change'] }}</span>
                         <span class="text-base-content/60 ml-1 text-xs">{{ $stat['description'] }}</span>
                     </p>
                 </div>
@@ -24,7 +24,7 @@
         <div class="card bg-base-100 border border-base-300 shadow-sm xl:col-span-2">
             <div class="card-body">
                 <div class="flex items-center justify-between gap-2">
-                    <h2 class="card-title text-base">Grafik Pendapatan</h2>
+                    <h2 class="card-title text-base">Grafik Curah Hujan</h2>
                     <span class="badge badge-ghost badge-sm">7 hari terakhir</span>
                 </div>
                 <div class="mt-4 flex h-44 items-end gap-2 sm:gap-3">
@@ -42,9 +42,9 @@
             <div class="card-body">
                 <h2 class="card-title text-base">Aktivitas Terbaru</h2>
                 <ul class="mt-2 flex flex-col gap-4">
-                    @foreach ([['Pesanan #INV-2041 dibayar', '2 menit lalu', 'success'], ['Pengguna baru mendaftar', '18 menit lalu', 'info'], ['Stok produk menipis', '1 jam lalu', 'warning'], ['Laporan bulanan siap', '3 jam lalu', 'neutral']] as [$text, $time, $color])
+                    @foreach ([['Data TMA Pos A diterima', '2 menit lalu', 'badge-success badge-soft'], ['Pengguna operator baru ditambahkan', '18 menit lalu', 'badge-info badge-soft'], ['Tampungan bendungan di bawah 65%', '1 jam lalu', 'badge-warning badge-soft'], ['Laporan bulanan siap diunduh', '3 jam lalu', 'badge-neutral badge-soft']] as [$text, $time, $badge])
                         <li class="flex items-start gap-3">
-                            <span class="badge badge-soft badge-{{ $color }} mt-0.5 size-2.5 rounded-full p-0"></span>
+                            <span class="badge mt-1.5 size-2.5 rounded-full p-0 {{ $badge }}"></span>
                             <span>
                                 <span class="block text-sm font-medium">{{ $text }}</span>
                                 <span class="text-base-content/60 text-xs">{{ $time }}</span>
@@ -60,26 +60,26 @@
     <div class="card bg-base-100 mt-4 border border-base-300 shadow-sm">
         <div class="card-body p-0">
             <div class="flex flex-wrap items-center justify-between gap-2 p-5 pb-0">
-                <h2 class="card-title text-base">Pesanan Terbaru</h2>
+                <h2 class="card-title text-base">Perizinan Terbaru</h2>
                 <a href="{{ route('admin.reports') }}" class="btn btn-sm btn-ghost">Lihat semua</a>
             </div>
             <div class="overflow-x-auto p-2">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Invoice</th>
-                            <th>Pelanggan</th>
+                            <th>Nomor Izin</th>
+                            <th>Pemohon</th>
                             <th>Status</th>
-                            <th class="text-right">Total</th>
+                            <th class="text-right">Debit (L/dtk)</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ([['INV-2041', 'Siti Rahma', 'Lunas', 'badge-success', 'Rp 1.250.000'], ['INV-2040', 'Budi Santoso', 'Menunggu', 'badge-warning', 'Rp 850.000'], ['INV-2039', 'Andi Pratama', 'Diproses', 'badge-info', 'Rp 2.100.000'], ['INV-2038', 'Dewi Lestari', 'Batal', 'badge-error', 'Rp 640.000']] as [$invoice, $customer, $status, $badge, $total])
+                        @foreach ([['SIPA-2041', 'PDAM Kota Contoh', 'Aktif', 'badge-success badge-soft', '125'], ['SIPA-2040', 'PT Air Bersih', 'Verifikasi', 'badge-warning badge-soft', '85'], ['SIPA-2039', 'Koperasi Tani Maju', 'Diproses', 'badge-info badge-soft', '42'], ['SIPA-2038', 'PT Industri Raya', 'Ditolak', 'badge-error badge-soft', '210']] as [$number, $applicant, $status, $badge, $debit])
                             <tr class="hover">
-                                <td class="font-mono text-sm font-semibold">{{ $invoice }}</td>
-                                <td>{{ $customer }}</td>
-                                <td><span class="badge badge-soft badge-sm {{ $badge }}">{{ $status }}</span></td>
-                                <td class="text-right font-semibold">{{ $total }}</td>
+                                <td class="font-mono text-sm font-semibold">{{ $number }}</td>
+                                <td>{{ $applicant }}</td>
+                                <td><span class="badge badge-sm {{ $badge }}">{{ $status }}</span></td>
+                                <td class="text-right font-semibold">{{ $debit }}</td>
                             </tr>
                         @endforeach
                     </tbody>

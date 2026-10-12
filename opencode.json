@@ -4,25 +4,7 @@
         "laravel-boost": {
             "type": "local",
             "enabled": true,
-            "command": [
-                "php",
-                "artisan",
-                "boost:mcp"
-            ]
-        },
-        "daisyui-blueprint": {
-            "type": "local",
-            "command": [
-                "npx",
-                "-y",
-                "daisyui-blueprint@latest"
-            ],
-            "enabled": true,
-            "environment": {
-                "LICENSE": "YOUR_LICENSE_KEY",
-                "EMAIL": "YOUR_EMAIL",
-                "FIGMA": "YOUR_FIGMA_API_KEY (optional)"
-            }
+            "command": ["php", "artisan", "boost:mcp"]
         }
     }
 }

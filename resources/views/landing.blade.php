@@ -70,7 +70,7 @@
             <a href="#{{ $anchor }}" class="card bg-base-100 border border-base-300 shadow-md transition-shadow hover:shadow-lg">
                 <div class="card-body gap-1 p-4 sm:p-5">
                     <span class="grid size-10 place-items-center rounded-xl bg-blue-900/10 text-blue-900">
-                        <i data-lucide="{{ $icon }}" class="size-5"></i>
+                        <x-dynamic-component :component="'lucide-'.$icon" class="size-5" />
                     </span>
                     <p class="mt-2 text-sm font-extrabold sm:text-base">{{ $title }}</p>
                     <p class="text-base-content/60 text-xs sm:text-sm">{{ $desc }}</p>
@@ -83,11 +83,11 @@
 {{-- Pengumuman --}}
 <section class="mx-auto max-w-7xl px-4 pb-4 lg:px-8">
     <div role="alert" class="alert bg-amber-50 text-amber-900 shadow-sm">
-        <i data-lucide="triangle-alert" class="size-5 shrink-0"></i>
+        <x-lucide-triangle-alert class="size-5 shrink-0" />
         <div class="text-sm">
             <span class="font-bold">Pengumuman:</span>
             pemeliharaan rutin bendungan utama dilaksanakan pekan ini. Masyarakat diimbau mengikuti informasi debit melalui halaman Data.
-            <a href="#data" class="link inline-flex items-center gap-1 font-semibold">Lihat data <i data-lucide="arrow-right" class="size-4"></i></a>
+            <a href="#data" class="link inline-flex items-center gap-1 font-semibold">Lihat data <x-lucide-arrow-right class="size-4" /></a>
         </div>
     </div>
 </section>
@@ -112,7 +112,7 @@
                     'Pemberian rekomendasi teknis perizinan penggunaan sumber daya air.',
                 ] as $item)
                     <li class="flex items-start gap-3">
-                        <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-blue-900 text-white"><i data-lucide="check" class="size-3.5"></i></span>
+                        <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-blue-900 text-white"><x-lucide-check class="size-3.5" /></span>
                         <span class="text-sm sm:text-base">{{ $item }}</span>
                     </li>
                 @endforeach
@@ -134,7 +134,7 @@
                                 <span class="block text-sm font-bold">{{ $rule }}</span>
                                 <span class="text-base-content/60 block text-xs">{{ $about }}</span>
                             </span>
-                            <a href="#regulasi" class="btn btn-ghost btn-xs gap-1">Detail <i data-lucide="arrow-right" class="size-3.5"></i></a>
+                            <a href="#regulasi" class="btn btn-ghost btn-xs gap-1">Detail <x-lucide-arrow-right class="size-3.5" /></a>
                         </li>
                     @endforeach
                 </ul>
@@ -165,11 +165,11 @@
                 <div class="card bg-base-100 border border-base-300 shadow-sm transition-shadow hover:shadow-md">
                     <div class="card-body">
                         <span class="grid size-11 place-items-center rounded-xl bg-blue-900/10 text-blue-900">
-                            <i data-lucide="{{ $icon }}" class="size-6"></i>
+                            <x-dynamic-component :component="'lucide-'.$icon" class="size-6" />
                         </span>
                         <h3 class="card-title mt-3 text-base">{{ $title }}</h3>
                         <p class="text-base-content/60 text-sm">{{ $desc }}</p>
-                        <a href="#kontak" class="link mt-2 inline-flex items-center gap-1 text-sm font-semibold text-blue-800">Ajukan <i data-lucide="arrow-right" class="size-4"></i></a>
+                        <a href="#kontak" class="link mt-2 inline-flex items-center gap-1 text-sm font-semibold text-blue-800">Ajukan <x-lucide-arrow-right class="size-4" /></a>
                     </div>
                 </div>
             @endforeach
@@ -263,7 +263,7 @@
                                 <span class="block text-sm font-bold">{{ $rule }}</span>
                                 <span class="text-base-content/60 block text-xs">{{ $about }} • PDF {{ $size }}</span>
                             </span>
-                            <button type="button" class="btn btn-ghost btn-xs gap-1"><i data-lucide="download" class="size-3.5"></i> Unduh</button>
+                            <button type="button" class="btn btn-ghost btn-xs gap-1"><x-lucide-download class="size-3.5" /> Unduh</button>
                         </li>
                     @endforeach
                 </ul>
@@ -272,7 +272,7 @@
                 <p class="text-sm font-bold tracking-widest text-blue-800 uppercase">Kabar Terkini</p>
                 <div class="flex flex-wrap items-end justify-between gap-4">
                     <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-blue-950">Berita & Agenda</h2>
-                    <a href="#berita" class="btn btn-ghost btn-sm gap-1">Indeks berita <i data-lucide="arrow-right" class="size-4"></i></a>
+                    <a href="#berita" class="btn btn-ghost btn-sm gap-1">Indeks berita <x-lucide-arrow-right class="size-4" /></a>
                 </div>
                 <div class="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
                     @foreach ([
@@ -332,13 +332,13 @@
                     <p class="text-blue-200">Pelayanan informasi, konsultasi, dan pengaduan masyarakat.</p>
                     <ul class="mt-4 flex flex-col gap-3 text-sm font-medium">
                         <li class="flex items-center gap-3">
-                            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/15"><i data-lucide="phone" class="size-4"></i></span> (021) 123-4567 — Senin–Jumat, 08.00–16.00 WIB
+                            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/15"><x-lucide-phone class="size-4" /></span> (021) 123-4567 — Senin–Jumat, 08.00–16.00 WIB
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/15"><i data-lucide="mail" class="size-4"></i></span> info@example.com
+                            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/15"><x-lucide-mail class="size-4" /></span> info@example.com
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/15"><i data-lucide="map-pin" class="size-4"></i></span> Jl. Contoh No. 123, Indonesia
+                            <span class="grid size-9 shrink-0 place-items-center rounded-lg bg-white/15"><x-lucide-map-pin class="size-4" /></span> Jl. Contoh No. 123, Indonesia
                         </li>
                     </ul>
                 </div>

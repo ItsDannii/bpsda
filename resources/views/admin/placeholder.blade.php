@@ -7,7 +7,7 @@
 @section('content')
     <div class="card bg-base-100 mx-auto max-w-2xl border border-base-300 shadow-sm">
         <div class="card-body items-center py-12 text-center">
-            <div class="bg-base-200 grid size-14 place-items-center rounded-2xl text-2xl">📄</div>
+            <div class="bg-base-200 text-base-content/60 grid size-14 place-items-center rounded-2xl"><x-lucide-file-text class="size-7" /></div>
             <h2 class="card-title mt-2">Halaman {{ $title }}</h2>
             <p class="text-base-content/60 max-w-md text-sm">{{ $description }}</p>
             <div class="card-actions mt-4">

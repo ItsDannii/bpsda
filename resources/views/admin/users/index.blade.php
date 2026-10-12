@@ -7,7 +7,7 @@
 @section('content')
     @if (session('status'))
         <div role="alert" class="alert alert-success mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+            <x-lucide-circle-check class="size-5 shrink-0" />
             <span class="text-sm">{{ session('status') }}</span>
         </div>
     @endif
@@ -21,7 +21,7 @@
 
             <form method="GET" action="{{ route('admin.users.index') }}" class="flex flex-wrap gap-2 p-5 pb-0">
                 <label class="input input-bordered input-sm flex flex-1 items-center gap-2 sm:max-w-xs">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-4 opacity-60"><circle cx="11" cy="11" r="7" /><path stroke-linecap="round" d="m20 20-3.5-3.5" /></svg>
+                    <x-lucide-search class="size-4 opacity-60" />
                     <input type="search" name="search" value="{{ $search }}" placeholder="Cari nama atau email…" class="grow">
                 </label>
                 <select name="role" onchange="this.form.submit()" class="select select-bordered select-sm w-full sm:w-auto">
